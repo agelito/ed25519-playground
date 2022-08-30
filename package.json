@@ -1,8 +1,8 @@
 {
   "name": "ed25519-playground",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Project for benchmarking and comparing various ed25519 implementations.",
+  "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
     "lint": "eslint",
