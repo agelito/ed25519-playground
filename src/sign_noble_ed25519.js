@@ -17,7 +17,7 @@ function createKeypair(privateKey) {
         publicKey,
         privateKey,
     };
-};
+}
 
 /**
  * Verify a signed message
@@ -44,4 +44,4 @@ module.exports = {
     createKeypair,
     verifySignature,
     signMessage
-}
+};

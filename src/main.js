@@ -17,10 +17,9 @@ const ed25519_signature = ed25519.signMessage(messageBuffer, ed25519_keypair.pri
 const noble_signature = noble_ed25519.signMessage(messageBuffer, noble_keypair.privateKey);
 const tweetnacl_signature = tweetnacl.signMessage(messageBuffer, tweetnacl_keypair.privateKey);
 
-const suite = new Benchmark.Suite;
-suite.add(`ed25519#signMessage`, () => {
+const signSuite = new Benchmark.Suite;
+signSuite.add(`ed25519#signMessage`, () => {
     ed25519.signMessage(messageBuffer, ed25519_keypair.privateKey);
-
 }).add(`ed25519#verifySignature`, () => {
     ed25519.verifySignature(messageBuffer, ed25519_signature, ed25519_keypair.publicKey);
 }).add(`noble_ed25519#signMessage`, () => {
@@ -31,8 +30,21 @@ suite.add(`ed25519#signMessage`, () => {
     tweetnacl.signMessage(messageBuffer, tweetnacl_keypair.privateKey);
 }).add(`tweetnacl#verifySignature`, () => {
     tweetnacl.verifySignature(messageBuffer, tweetnacl_signature, tweetnacl_keypair.publicKey);
-}).on('cycle', function(event) {
+}).on(`cycle`, function(event) {
   console.log(String(event.target));
-}).on('complete', function() {
-  console.log('Fastest is ' + this.filter('fastest').map('name'));
+}).on(`complete`, function() {
+  console.log(`Fastest is ` + this.filter(`fastest`).map(`name`));
+}).run();
+
+const verifySuite = new Benchmark.Suite;
+verifySuite.add(`ed25519#verifySignature`, () => {
+    ed25519.verifySignature(messageBuffer, ed25519_signature, ed25519_keypair.publicKey);
+}).add(`noble_ed25519#verifySignature`, () => {
+    noble_ed25519.verifySignature(messageBuffer, noble_signature, noble_keypair.publicKey);
+}).add(`tweetnacl#verifySignature`, () => {
+    tweetnacl.verifySignature(messageBuffer, tweetnacl_signature, tweetnacl_keypair.publicKey);
+}).on(`cycle`, function(event) {
+  console.log(String(event.target));
+}).on(`complete`, function() {
+  console.log(`Fastest verifySignature: ${this.filter(`fastest`).map(`name`)}`);
 }).run();

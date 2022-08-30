@@ -12,8 +12,8 @@ function createKeypair(privateKey) {
     return {
         privateKey: Buffer.from(keypair.secretKey),
         publicKey: Buffer.from(keypair.publicKey),
-    }
-};
+    };
+}
 
 /**
  * Verify a signed message
@@ -40,4 +40,4 @@ module.exports = {
     createKeypair,
     verifySignature,
     signMessage
-}
+};

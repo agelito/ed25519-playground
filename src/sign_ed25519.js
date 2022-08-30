@@ -9,7 +9,7 @@ const ed25519 = require(`ed25519`);
  */
 function createKeypair(privateKey) {
     return ed25519.MakeKeypair(privateKey);
-};
+}
 
 /**
  * Verify a signed message
@@ -37,4 +37,4 @@ module.exports = {
     createKeypair,
     verifySignature,
     signMessage
-}
+};
