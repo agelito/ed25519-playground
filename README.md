@@ -40,6 +40,7 @@ Here I'll list any know performance data I've collected so far.
 | Kernel | 5.19.4-arch1-1|
 | CPU | Intel i7-3610QM (8) @ 3.30Ghz |
 | Memory | 15,954 MiB (16GB) |
+| Node | v14.15.1 |
 
 #### Benchmark Results
 | Package | Function | ops/sec | samples | deviation |
