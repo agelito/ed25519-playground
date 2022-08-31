@@ -2,6 +2,10 @@
   "name": "ed25519-playground",
   "version": "0.1.0",
   "description": "Project for benchmarking and comparing various ed25519 implementations.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agelito/ed25519-playground.git"
+  },
   "main": "src/main.js",
   "scripts": {
     "start": "node src/main.js",
