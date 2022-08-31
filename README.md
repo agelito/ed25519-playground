@@ -10,7 +10,7 @@ So far the packages it compares and benchmarks is:
 ## Installing
 
 ```sh
-git clone https://github.com/agelito/ed25519-benchmark.git && cd ed25519-benchmark
+git clone https://github.com/agelito/ed25519-playground.git && cd ed25519-playground
 npm i
 ```
 
